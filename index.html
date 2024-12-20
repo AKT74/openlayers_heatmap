@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Earthquakes Heatmap</title>
+  <link rel="stylesheet" href="node_modules/ol/ol.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Map Container -->
+  <div id="map" class="map"></div>
+
+  <!-- Form for Adjusting Heatmap Settings -->
+  <form>
+    <label for="radius">Radius Size:</label>
+    <input id="radius" type="range" min="1" max="50" step="1" value="5" />
+    <label for="blur">Blur Size:</label>
+    <input id="blur" type="range" min="1" max="50" step="1" value="15" />
+  </form>
+
+  <script type="module" src="/earthquakes heatmap/main.js"></script>
+</body>
+</html>
