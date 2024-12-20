@@ -1,16 +1,21 @@
 import KML from 'https://cdn.skypack.dev/ol/format/KML.js';
 import Map from 'https://cdn.skypack.dev/ol/Map.js';
-import StadiaMaps from 'https://cdn.skypack.dev/ol/source/StadiaMaps.js';
+import OSM from 'https://cdn.skypack.dev/ol/source/OSM.js';
+
+
 import VectorSource from 'https://cdn.skypack.dev/ol/source/Vector.js';
 import View from 'https://cdn.skypack.dev/ol/View.js';
 import {Heatmap as HeatmapLayer, Tile as TileLayer} from 'https://cdn.skypack.dev/ol/layer.js';
 
 const blur = document.getElementById('blur');
 const radius = document.getElementById('radius');
+const raster = new TileLayer({
+  source: new OSM(),
+});
 
 const vector = new HeatmapLayer({
   source: new VectorSource({
-    url: '2012_Earthquakes_Mag5.kml',
+    url: 'data/kml/2012_Earthquakes_Mag5.kml',
     format: new KML({
       extractStyles: false,
     }),
@@ -27,14 +32,14 @@ const vector = new HeatmapLayer({
   },
 });
 
-const raster = new TileLayer({
+const stadiaRaster = new TileLayer({
   source: new StadiaMaps({
     layer: 'stamen_toner',
   }),
 });
 
 new Map({
-  layers: [raster, vector],
+  layers: [stadiaRaster, vector],
   target: 'map',
   view: new View({
     center: [0, 0],
