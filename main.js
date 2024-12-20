@@ -10,7 +10,7 @@ const radius = document.getElementById('radius');
 
 const vector = new HeatmapLayer({
   source: new VectorSource({
-    url: '2012_Earthquakes_Mag5.kml',
+    url: 'data/kml/2012_Earthquakes_Mag5.kml',
     format: new KML({
       extractStyles: false,
     }),
